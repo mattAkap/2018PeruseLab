@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 by http://peruselab.com/,created by Saran Kumar -->
+<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg" version="1.1" style="fill:black">
+	<polygon points="0,3 16,3 16,1 24,4 16,7 16,5 0,5" />
+	<polygon points="24,11 7,11 7,9 0,12 7,15 7,13 24,13" />
+	<polygon points="0,19 16,19 14,16 24,20 14,24 16,21 0,21" />
+</svg>

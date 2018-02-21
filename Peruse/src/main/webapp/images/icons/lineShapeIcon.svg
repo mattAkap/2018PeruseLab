@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 by http://peruselab.com/,created by Saran Kumar -->
+<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg" version="1.1"
+	style="stroke:black;stroke-width:3;stroke-linecap:butt;fill:none">
+	<path d="M 1.5  7 Q12 -3 23.5 7" />
+	<path d="M 1.5 11.5 L23.5 11.5" />
+	<path d="M 1.5 23 Q6 15 12 20 T23 17" />
+</svg>

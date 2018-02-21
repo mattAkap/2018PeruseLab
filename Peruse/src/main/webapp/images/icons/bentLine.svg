@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 by http://peruselab.com/,created by Saran Kumar -->
+<svg width="100" height="24" xmlns="http://www.w3.org/2000/svg" version="1.1"
+	style="stroke:black;stroke-width:3;stroke-linecap:round;fill:none;">
+	<polyline points="1,1 50,1 50,23 99,23" />
+</svg>

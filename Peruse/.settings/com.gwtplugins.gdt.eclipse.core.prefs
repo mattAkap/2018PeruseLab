@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+gwtMavenModuleName=com.peruselabs.peruse.Peruse
+gwtMavenModuleShortName=Peruse
+lastWarOutDir=I\:/Repository/Peruse/target/Peruse-1.0-SNAPSHOT
+warSrcDir=src/main/webapp
+warSrcDirIsOutput=false

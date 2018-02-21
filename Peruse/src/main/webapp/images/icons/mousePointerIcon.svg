@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 by http://peruselab.com/,created by Saran Kumar -->
+<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg" version="1.1"
+	style="stroke:black;stroke-width:3;stroke-linecap:miter;fill:none">
+	<path d="m5,5 
+		L45,27
+		L34.5,33
+		L50.25,50.25
+		L45,54
+		L30,37.5
+		L22.5,48Z" />
+</svg>

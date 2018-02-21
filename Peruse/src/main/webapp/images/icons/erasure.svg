@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 by http://peruselab.com/,created by Saran Kumar -->
+<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg" version="1.1"
+	style="fill:none;stroke:black;stroke-width:3;stroke-linecap:round;stroke-linejoin:round">
+	<polygon points="36,2 55,17 30,48 18,48 8,36" />
+	<line x1="18.9" y1="23.7" x2="36.5" y2="38" />
+	<line x1="1.8" y1="45" x2="8" y2="45" />
+	<line x1="41" y1="45" x2="61" y2="45" />
+	<line x1="1.8" y1="54" x2="61" y2="54" />
+	<text x="30" y="27" style="font-family:Helvetica;font-size:18;stroke-width:1;fill:black">E</text>
+</svg>

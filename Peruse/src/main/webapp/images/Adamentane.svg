@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--© 2014 http://peruselab.com/-->
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" 
+	version="1.1" viewBox="0 0 210 271" >
+    <g id="styler" style="fill:none;stroke-width:14">
+        <polyline points='45,215 72,140 133,94' style="stroke-linejoin:round;stroke:#ffffff"/>
+        <polyline points='135,140 73,94' style="stroke:#26a69a; stroke-width:23"/>
+        <polyline points='159,215 135,140 73,94' style="stroke-linejoin:round;stroke:#ffffff"/>
+        <g id="outer" style="stroke-linejoin:round;stroke:#ffffff">
+            <polygon points="159,215 196,142 133,94 103,16.5 73,94 11,142 45,215 103,262" />
+        </g>
+    </g>
+</svg>

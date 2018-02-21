@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 by http://peruselab.com/,created by Saran Kumar -->
+<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg" version="1.1"
+	style="stroke:black;stroke-width:3;stroke-linecap:round;">
+	<line x1="13.16" y1="07.21" x2="57.66" y2="51.54" />
+	<line x1="09.80" y1="10.49" x2="54.32" y2="54.72" />
+	<line x1="16.19" y1="04.08" x2="60.75" y2="48.11" />
+	<line x1="06.50" y1="13.73" x2="50.89" y2="58.10" />
+	<line x1="03.44" y1="17.12" x2="47.38" y2="61.27" />
+</svg>

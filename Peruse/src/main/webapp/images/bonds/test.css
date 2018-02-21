@@ -1,0 +1,8 @@
+@CHARSET "UTF-8";
+/* Do not reformat using Eclipse */
+
+.aCircle {
+	stroke: blue;
+	stroke-width: 3;
+	fill: red;
+}

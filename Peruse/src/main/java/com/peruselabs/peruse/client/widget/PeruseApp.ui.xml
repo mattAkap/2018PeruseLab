@@ -1,0 +1,75 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder' xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:m='urn:import:gwt.material.design.client.ui' xmlns:ma="urn:import:gwt.material.design.addins.client">
+	<ui:style gss="true">
+	.sample {
+		stroke: green;
+		stroke-width: 3;
+		stroke-linecap: round;
+	}
+	</ui:style>
+	<m:MaterialPanel marginTop="5">
+		<m:MaterialHeader ui:field="header">
+			<m:MaterialNavBar ui:field="navBar" layoutPosition="FIXED" height="auto"
+				activates="sidenavPush" backgroundColor="TEAL_LIGHTEN_1">
+				<m:MaterialLink iconType="APPS" />
+				<m:MaterialLink iconType="REFRESH" />
+				<m:MaterialLabel text="Beta version" styleName="beta" />
+				<m:MaterialNavContent paddingLeft="14" backgroundColor="TEAL_LIGHTEN_3">
+					<m:MaterialLink iconType="MENU" />
+				</m:MaterialNavContent>
+			</m:MaterialNavBar>
+		</m:MaterialHeader>
+
+		<m:MaterialSideNavPush m:id="sidenavPush" ui:field="sideNav" width="216">
+			<m:MaterialNavBrand text="PeruseLab" textAlign="CENTER" backgroundColor="TEAL_LIGHTEN_1"
+				height="65px">
+				<m:MaterialImage url="images/Adamentane.svg" height="63px" />
+			</m:MaterialNavBrand>
+			<m:MaterialCollapsible paddingTop="64">
+				<!-- PARENT 1 -->
+				<m:MaterialCollapsibleItem>
+					<m:MaterialCollapsibleHeader waves="DEFAULT">
+						<m:MaterialLink text="BONDS" />
+					</m:MaterialCollapsibleHeader>
+					<m:MaterialCollapsibleBody>
+						<g:HTMLPanel>
+							<m:MaterialImage url="images/bonds/singleBond.svg" styleName="icon" ui:field="singleBond"
+								shadow="2" />
+							<m:MaterialImage url="images/bonds/doubleBond.svg" styleName="icon" ui:field="doubleBond" />
+							<m:MaterialImage url="images/bonds/tripleBond.svg" styleName="icon" ui:field="tripleBond" />
+							<!-- m:MaterialImage url="images/bonds/quadrupleBond.svg" styleName="icon" ui:field="quadrupleBond" 
+								/> <m:MaterialImage url="images/bonds/quintupleBond.svg" styleName="icon" ui:field="quintupleBond" /> 
+								<m:MaterialImage url="images/bonds/sextupleBond.svg" styleName="icon" ui:field="sextupleBond" / -->
+
+							<m:MaterialImage url="images/bonds/hydrogenBond.svg" styleName="icon"
+								ui:field="hydrogenBond" />
+							<m:MaterialImage url="images/bonds/projectedToYou.svg" styleName="icon"
+								ui:field="projectedToYouBond" />
+							<m:MaterialImage url="images/bonds/projectedAway.svg" styleName="icon"
+								ui:field="projectedAwayBond" />
+							<m:MaterialImage url="images/icons/placeHolder.svg" styleName="emptyIcon" />
+							<m:MaterialImage url="images/icons/addElement.svg" styleName="icon"
+								ui:field="addAtomicSymbol" />
+						</g:HTMLPanel>
+					</m:MaterialCollapsibleBody>
+				</m:MaterialCollapsibleItem>
+			</m:MaterialCollapsible>
+		</m:MaterialSideNavPush>
+
+		<m:MaterialContainer paddingTop="126" ui:field="content">
+			<m:MaterialPanel styleName="drawing-paper" shadow="1">
+				<m:MaterialImage url="images/Adamentane-sample.svg" width="225px" />
+				<m:MaterialFAB ui:field="fab">
+					<m:MaterialButton type="FLOATING"
+						href="https://github.com/GwtMaterialDesign/gwt-material-patterns/blob/release_2.0/src/main/java/com/github/gwtmaterialdesign/client/application/sidenavcard/CardSideNavView.ui.xml"
+						target="_blank" backgroundColor="PINK" size="LARGE" iconType="CODE" />
+				</m:MaterialFAB>
+			</m:MaterialPanel>
+			<m:MaterialFooter styleName="bottom-line">
+				<m:MaterialLabel
+					text="© 2015 Copyright SNKV Services Inc; No implied, implicit, or explicit warrantees; use 'as-is'"
+					styleName="copyright" />
+			</m:MaterialFooter>
+		</m:MaterialContainer>
+	</m:MaterialPanel>
+</ui:UiBinder>

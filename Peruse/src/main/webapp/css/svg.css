@@ -1,0 +1,43 @@
+@CHARSET "UTF-8";
+/* Do not reformat using Eclipse */
+/** PeruseLabs SVG Style **/
+
+:root {
+	--titleFontSize: 27px;
+	--superscriptFactor: .75;
+	--suffixFactor: .75;
+}
+
+svg {
+	/* Defaults */
+	background-color: none;
+	font-family: Arial, Verdana, "Sans Serif";
+	font-size: 12px;
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: none;
+	stroke: red;
+	fill: none;
+}
+
+.title {
+	font-size: var(--titleFontSize) !important;
+	fill: black;
+	stroke-width: 0;
+}
+
+.super {
+	font-size: calc(var(--titleFontSize) * var(--superscriptFactor)) !important;;
+	baseline-shift: super;
+}
+
+.suffix {
+	font-size: calc(var(--titleFontSize) * var(--suffixFactor)) !important;;
+	baseline-shift: sub;
+}
+
+.bond {
+	stroke: black;
+	stroke-width: 5;
+	stroke-linecap: round;
+}

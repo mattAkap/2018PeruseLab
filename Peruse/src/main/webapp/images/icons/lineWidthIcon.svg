@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 by http://peruselab.com/,created by Saran Kumar -->
+<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" version="1.1" style="stroke:black">
+	<line x1="1.5" y1="01.5" x2="23.5" y2="01.5" style="stroke-width:1" />
+	<line x1="1.5" y1="10.5" x2="23.5" y2="10.5" style="stroke-width:2" />
+	<line x1="1.5" y1="21.0" x2="23.5" y2="20.5" style="stroke-width:4" />
+</svg>

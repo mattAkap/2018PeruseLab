@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 by http://peruselab.com/,created by Saran Kumar -->
+<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg" version="1.1"
+	style="stroke:none;stroke-width:0;stroke-linecap:round;fill:black">
+	<polygon points="20,0 0,20 3.5,22.4 22.4,3.5" />
+	<polygon points="26.4,9.3 9.3,26.4 14.3,29.7 29.7,14.3" />
+	<polygon points="33.7,20.1 20.1,33.7 25.0,37.1 37.1,25.0" />
+	<polygon points="41.0,30.8, 30.8, 41.0 35.7,44.4 44.4,35.7" />
+	<polygon points="48.3,41.5 41.5,48.3 46.5,51.7 51.7, 46.5" />
+	<polygon points="55.7,52.3 52.3, 55.7 57.2,59.1 59.1,57.2" />
+</svg>
