@@ -57,8 +57,8 @@
 		</m:MaterialSideNavPush>
 
 		<m:MaterialContainer paddingTop="126" ui:field="content">
-			<m:MaterialPanel styleName="drawing-paper" shadow="1">
-				<m:MaterialImage url="images/Adamentane-sample.svg" width="225px" />
+			<m:MaterialPanel styleName="drawing-paper" shadow="1" ui:field="paper">
+				<!-- <m:MaterialImage url="images/Adamentane-sample.svg" width="225px" /> -->
 				<m:MaterialFAB ui:field="fab">
 					<m:MaterialButton type="FLOATING"
 						href="https://github.com/GwtMaterialDesign/gwt-material-patterns/blob/release_2.0/src/main/java/com/github/gwtmaterialdesign/client/application/sidenavcard/CardSideNavView.ui.xml"

@@ -2,6 +2,8 @@ package com.peruselabs.peruse.client;
 
 import com.gargoylesoftware.htmlunit.javascript.host.Console;
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.dom.client.Element;
+import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.peruselabs.peruse.client.widget.PeruseApp;
 import com.peruselabs.peruse.client.widget.SVGItems;
@@ -20,11 +22,9 @@ public class Peruse implements EntryPoint {
         PeruseApp app = new PeruseApp();
         RootPanel.get("appHolder").add(app);
         SVGItems items = new SVGItems();
+        //Element canvas = DOM.getElementById("canvas");
         
-        for (Point point : items.Points) {
-        	System.out.println(point.toString());
-        }
-        SingleCardResult result = new SingleCardResult("images/bonds/singleBond.svg");
+        /*SingleCardResult result = new SingleCardResult("images/bonds/singleBond.svg");
         app.add(result);
         result = new SingleCardResult("images/bonds/hydrogenBond.svg");
         app.add(result);
@@ -77,6 +77,6 @@ public class Peruse implements EntryPoint {
         result = new SingleCardResult("images/Adamentane-sample.svg");
         app.add(result);
         result = new SingleCardResult("images/Adamentane-sample.svg");
-        app.add(result);
+        app.add(result);*/
     }
 }
