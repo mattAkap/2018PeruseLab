@@ -31,6 +31,43 @@ public class SVGItems {
 		if (!Lines.contains(newLine))
 			Lines.add(newLine);
 		
+	}
+	
+	public Point findnearPoint(Point p1) {
+		Point neighbor = null;
+		double min_distance = 100, distance;
+		int index = -1;
 		
+		for(int i = 0; i < Points.size();i++) {
+			Point p2 = Points.get(i);
+			distance = Math.sqrt(Math.pow(p1.getX()-p2.getX(), 2) + Math.pow(p1.getY()-p2.getY(), 2));
+			if(distance < min_distance) {
+				min_distance = distance;
+				index = i;
+			}
+		}
+		
+		neighbor = Points.get(index);
+		
+		return neighbor;
+			
+	}
+	
+	public boolean shouldConnect(Point p1) {
+		double distance, min_distance = 100;
+		boolean doesConnect = false;
+		for(int i = 0; i < Points.size();i++) {
+			Point p2 = Points.get(i);
+			distance = Math.sqrt(Math.pow(p1.getX()-p2.getX(), 2) + Math.pow(p1.getY()-p2.getY(), 2));
+			if(distance < min_distance) {
+				min_distance = distance;
+			}
+		}
+		
+		if(min_distance < 5) {
+			doesConnect = true;
+		}
+		
+		return doesConnect;
 	}
 }

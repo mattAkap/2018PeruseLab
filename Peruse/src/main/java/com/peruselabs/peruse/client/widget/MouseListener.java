@@ -19,18 +19,31 @@ public class MouseListener extends HandlesAllMouseEvents{
 
 	private boolean dragging;
 	private boolean created = false;
+	private boolean connect = false;
 	private MouseResponse mouseResponse;
+	private SVGItems svg_items;
+	private Point start, end, neighbor;
 	
 	@Override
 	public void onMouseDown(MouseDownEvent event) {
 		if(created==false) {
 			mouseResponse = new MouseResponse();
+			svg_items = new SVGItems();
 			created = true;
 		}
 		
 		int x = event.getX();
 		int y = event.getY();
-		mouseResponse.startLine(x, y);
+		start = new Point(x, y);
+		end = new Point(x, y);
+		if(neighbor != null) {
+			start.setX(neighbor.getX());
+			start.setY(neighbor.getY());
+			end.setX(neighbor.getX());
+			end.setY(neighbor.getY());
+			mouseResponse.endConnection();
+		}
+		mouseResponse.startLine(start, end);
 	
 		dragging = true;
 		
@@ -41,7 +54,15 @@ public class MouseListener extends HandlesAllMouseEvents{
 	public void onMouseUp(MouseUpEvent event) {
 		int x = event.getX();
 		int y = event.getY();
-		mouseResponse.finishLine(x, y);
+		end.setX(x);
+		end.setY(y);
+		if(neighbor != null) {
+			end.setX(neighbor.getX());
+			end.setY(neighbor.getY());
+			mouseResponse.endConnection();
+		}
+		mouseResponse.finishLine(end);
+		svg_items.AddPoints(start, end);
 		dragging = false;
 
 				
@@ -51,8 +72,25 @@ public class MouseListener extends HandlesAllMouseEvents{
 	public void onMouseMove(MouseMoveEvent event) {
 		int x = event.getX();
 		int y = event.getY();
+		
+		Point p = new Point(x,y);
+		connect = svg_items.shouldConnect(p);
+		if(connect) {
+			neighbor = svg_items.findnearPoint(p);
+			mouseResponse.showConnection(p);
+		} else {
+			neighbor = null;
+			mouseResponse.endConnection();
+		}
+
 		if(dragging) {
-			mouseResponse.updateLine(x, y);
+			end.setX(x);
+			end.setY(y);
+			if(neighbor != null) {
+				end.setX(neighbor.getX());
+				end.setY(neighbor.getY());
+			}
+			mouseResponse.updateLine(end);
 		}
 		
 	}
@@ -65,8 +103,7 @@ public class MouseListener extends HandlesAllMouseEvents{
 
 	@Override
 	public void onMouseOver(MouseOverEvent event) {
-		// TODO Auto-generated method stub
-		
+	
 	}
 
 	@Override

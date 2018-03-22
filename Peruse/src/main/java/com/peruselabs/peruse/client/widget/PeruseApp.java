@@ -46,7 +46,6 @@ public class PeruseApp extends Composite {
         paper.addDomHandler(mouselistener, MouseDownEvent.getType());
         paper.addDomHandler(mouselistener, MouseMoveEvent.getType());
         paper.addDomHandler(mouselistener, MouseUpEvent.getType());
-        paper.addDomHandler(mouselistener, MouseOverEvent.getType());
     }
 
     public void add(Widget widget) {
