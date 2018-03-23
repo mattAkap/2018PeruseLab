@@ -23,7 +23,8 @@ public interface MayContain {
      * @return
      */
     public boolean contains(Point aPoint);
-
+    
+   
     /**
      * Convenient method to verify the {@link MayContain} doesn't have aPoint
      * inside.
