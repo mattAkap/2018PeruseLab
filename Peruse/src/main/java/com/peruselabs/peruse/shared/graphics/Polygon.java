@@ -39,17 +39,30 @@ public class Polygon implements Crossable, MayContain {
 
     @Override
     public boolean contains(Point aPoint) {
-    	int i;
-        int j;
-        boolean result = false;
-        for (i = 0, j = points.size() - 1; i < points.size(); j = i++) {
-          if ((points.get(i).getY() > aPoint.getY()) != (points.get(j).getY() > aPoint.getY()) &&
-              (aPoint.getX() < (points.get(j).getX() - points.get(j).getX()) * (aPoint.getY() - points.get(i).getY()) / (points.get(j).getY() - points.get(i).getY()) + points.get(i).getX())) {
-            result = !result;
-           }
-        }
-        return result;
-      }
+    	 
+    	        int j = points.size() - 1;
+    	        boolean oddNodes = false;
+
+    	        for (int i = 0; i < points.size(); i++)
+    	        {
+    	            if (points.get(i).getY() < aPoint.getY() && points.get(j).getY() >= aPoint.getY() ||
+    	                points.get(j).getY() < aPoint.getY() && points.get(i).getY() >= aPoint.getY())
+    	            {
+    	                if (points.get(i).getX() +
+    	                    (aPoint.getY() - points.get(i).getY())/(points.get(j).getY() - points.get(j).getY()) * (points.get(j).getX() - points.get(i).getX()) < aPoint.getX())
+    	                
+    	                {
+    	                    oddNodes = !oddNodes;
+    	                }
+    	            }
+    	            j = i;
+    	        }
+
+    	        return oddNodes;
+    	        
+    	    }
+    	
+    
     
 
     @Override

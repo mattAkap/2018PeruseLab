@@ -6,6 +6,7 @@ package com.peruselabs.peruse.shared.graphics;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
@@ -20,7 +21,8 @@ import org.junit.Test;
  *
  */
 public class PolygonTest {
-    private List<Point> points;
+	protected List<Point> points = new ArrayList<Point>(); 
+
     private Polygon polygon;
 
     /**

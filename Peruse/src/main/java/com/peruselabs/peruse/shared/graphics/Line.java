@@ -5,6 +5,8 @@
 package com.peruselabs.peruse.shared.graphics;
 
 import com.peruselabs.peruse.shared.graphics.api.Crossable;
+import java.awt.geom.Line2D;
+
 
 /**
  * It is straight, theoretically without thickness, and may have a starting
@@ -57,13 +59,11 @@ public class Line implements Crossable {
 
     @Override
     public Point getIntersection(Crossable aLine) {
-        if (aLine == null) {
-            return null;
-        }
-
-        return null;
+    	Line2D line1 = new Line2D.Float(100, 100, 200, 200);
+    	Line2D line2 = new Line2D.Float(150, 150, 150, 200);
+    	return line1.intersectsLine(line2);
+    	
     }
-
     public Point getStart() {
         return start;
     }
