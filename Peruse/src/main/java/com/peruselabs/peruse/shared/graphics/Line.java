@@ -59,9 +59,46 @@ public class Line implements Crossable {
 
     @Override
     public Point getIntersection(Crossable aLine) {
-    	Line2D line1 = new Line2D.Float(100, 100, 200, 200);
-    	Line2D line2 = new Line2D.Float(150, 150, 150, 200);
-    	return line1.intersectsLine(line2);
+    	Point ret = new Point();
+    	Line2D line1 = new Line2D.Double(start.getX(), start.getY(),end.getX(),end.getY());
+    
+    	Line2D line2 = new Line2D.Double(this.start.getX(),this.start.getY(),this.end.getX(),this.end.getY());
+    	boolean result = line2.intersectsLine(line1);
+    	if(result == false) {
+    		return null;
+    	}else {
+    		 final double x1,y1, x2,y2, x3,y3, x4,y4;
+    		 x1 = start.getX(); y1 = start.getY(); x2 = end.getX(); y2 = end.getY();
+    	        x3 = this.start.getX(); y3 = this.start.getY(); x4 = this.end.getX(); y4 = this.end.getY();
+    	        final double x = (
+    	                (x2 - x1)*(x3*y4 - x4*y3) - (x4 - x3)*(x1*y2 - x2*y1)
+    	                ) /
+    	                (
+    	                (x1 - x2)*(y3 - y4) - (y1 - y2)*(x3 - x4)
+    	                );
+    	        final double y = (
+    	                (y3 - y4)*(x1*y2 - x2*y1) - (y1 - y2)*(x3*y4 - x4*y3)
+    	                ) /
+    	                (
+    	                (x1 - x2)*(y3 - y4) - (y1 - y2)*(x3 - x4)
+    	                );
+
+    	        ret.setX(x);
+    	        ret.setY(y);
+    	        return ret;
+
+    	    }
+    		 
+    
+   
+    	
+    	
+ 
+    	
+    	
+    	
+    	
+    	
     	
     }
     public Point getStart() {

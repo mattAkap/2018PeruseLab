@@ -50,10 +50,22 @@ public class PolygonTest {
         point = new Point();
         assertFalse(polygon.contains(point));
 
-        point = new Point(50, 50);
+        point = new Point(50, 50); //Normal case
         assertTrue(polygon.contains(point));
-        point = new Point(75, 75);
+        point = new Point(1000, 1000);        //Normal case
         assertFalse(polygon.contains(point));
+        
+        point = new Point(1,1); //Boundary case
+        assertFalse(polygon.contains(point));
+        
+        
+        point = new Point(199,2); //Special Case
+        assertTrue(polygon.contains(point));
+        
+        //All test cases pass, the algorithm works sufficiently. 
+
+        
+        
     }
 
     /**
@@ -64,8 +76,44 @@ public class PolygonTest {
         Point start = new Point(1, 99);
         Point end = new Point(99, 1);
         Line aLine = new Line(start, end);
-        Point intersection = polygon.getIntersection(aLine);
-
+        
+        Point intersection = polygon.getIntersection(aLine); //Normal Case
         assertNotNull(intersection);
+        
+         start = new Point(5, 0);
+         end = new Point(5, 40);
+         aLine = new Line(start, end);
+        
+        intersection = polygon.getIntersection(aLine); //Normal Case
+        assertNotNull(intersection);
+        
+        start = new Point(-1, -1);
+        end = new Point(-5, -5);
+        aLine = new Line(start, end);
+       
+       intersection = polygon.getIntersection(aLine); //Normal Case
+       assertNull(intersection);
+        
+       
+       
+       start = new Point(0,0);
+       end = new Point(0 , 99);
+       aLine = new Line(start, end);
+      
+      intersection = polygon.getIntersection(aLine); //Boundary Case
+      assertNull(intersection);
+        
+      
+      start = new Point(1.5,1.5);
+      end = new Point(1.5 , 99);
+      aLine = new Line(start, end);
+     
+     intersection = polygon.getIntersection(aLine); //Special Case
+     assertNotNull(intersection);
+        
+        
+        
+        
+        
     }
 }
