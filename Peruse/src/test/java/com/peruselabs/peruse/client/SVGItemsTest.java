@@ -4,12 +4,14 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import com.peruselabs.peruse.client.widget.SVGItems;
+import com.peruselabs.peruse.shared.graphics.Line;
 import com.peruselabs.peruse.shared.graphics.Point;
 
 /**
@@ -218,5 +220,41 @@ public class SVGItemsTest {
 		Point result = svgitem.findnearPoint(testPoint);
 		
 		assertEquals(result, d);
+	}
+	
+	@Test
+	public void testContainsDoes() {
+		Point a = new Point(0, 0);
+		Point b = new Point(100, 100);
+		Point c = new Point(25, 25);
+		Point d = new Point(75, 75);
+		svgitem.AddPoints(a, b);
+		svgitem.AddPoints(c, d);
+		Line test = new Line(a, b);
+		
+		boolean contains = svgitem.contains(test);
+		assertTrue(contains);
+	}
+	
+	@Test
+	public void testContainsDoesnot() {
+		Point a = new Point(0, 0);
+		Point b = new Point(100, 100);
+		Point c = new Point(25, 25);
+		Point d = new Point(75, 75);
+		svgitem.AddPoints(a, b);
+		svgitem.AddPoints(c, d);
+		Line test = new Line(new Point(0, 0), new Point(50, 50));
+		
+		boolean contains = svgitem.contains(test);
+		assertFalse(contains);
+	}
+	
+	@Test
+	public void testContainsEmpty() {
+		Line test = new Line(new Point(0, 0), new Point(50, 50));
+		
+		boolean contains = svgitem.contains(test);
+		assertFalse(contains);
 	}
 }

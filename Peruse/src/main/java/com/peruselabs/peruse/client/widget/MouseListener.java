@@ -19,78 +19,86 @@ public class MouseListener extends HandlesAllMouseEvents{
 
 	private boolean dragging;
 	private boolean created = false;
-	private boolean connect = false;
+	private boolean is3d;
 	private MouseResponse mouseResponse;
 	private SVGItems svg_items;
 	private Point start, end, neighbor;
 	
+	public MouseListener(SVGItems items, boolean dimension) {
+		svg_items = items;
+		is3d = dimension;
+	}
+	
 	@Override
 	public void onMouseDown(MouseDownEvent event) {
-		if(created==false) {
-			mouseResponse = new MouseResponse();
-			svg_items = new SVGItems();
-			created = true;
+		if(!is3d) {
+			if(created==false) {
+				mouseResponse = new MouseResponse();
+				created = true;
+			}
+			
+			int x = event.getX();
+			int y = event.getY();
+			start = new Point(x, y);
+			end = new Point(x, y);
+			if(neighbor != null) {
+				start.setX(neighbor.getX());
+				start.setY(neighbor.getY());
+				end.setX(neighbor.getX());
+				end.setY(neighbor.getY());
+				mouseResponse.endConnection();
+			}
+			mouseResponse.startLine(start, end);
+		
+			dragging = true;
+		
 		}
-		
-		int x = event.getX();
-		int y = event.getY();
-		start = new Point(x, y);
-		end = new Point(x, y);
-		if(neighbor != null) {
-			start.setX(neighbor.getX());
-			start.setY(neighbor.getY());
-			end.setX(neighbor.getX());
-			end.setY(neighbor.getY());
-			mouseResponse.endConnection();
-		}
-		mouseResponse.startLine(start, end);
-	
-		dragging = true;
-		
-		
 	}
 
 	@Override
 	public void onMouseUp(MouseUpEvent event) {
-		int x = event.getX();
-		int y = event.getY();
-		end.setX(x);
-		end.setY(y);
-		if(neighbor != null) {
-			end.setX(neighbor.getX());
-			end.setY(neighbor.getY());
-			mouseResponse.endConnection();
-		}
-		mouseResponse.finishLine(end);
-		svg_items.AddPoints(start, end);
-		dragging = false;
-
-				
-	}
-
-	@Override
-	public void onMouseMove(MouseMoveEvent event) {
-		int x = event.getX();
-		int y = event.getY();
-		
-		Point p = new Point(x,y);
-
-		neighbor = svg_items.findnearPoint(p);
-		if(neighbor != null) {
-			mouseResponse.showConnection(p);
-		}
-		else {
-			mouseResponse.endConnection();
-		}
-
-		if(dragging) {
+		if(!is3d) {
+			int x = event.getX();
+			int y = event.getY();
 			end.setX(x);
 			end.setY(y);
 			if(neighbor != null) {
 				end.setX(neighbor.getX());
 				end.setY(neighbor.getY());
+				mouseResponse.endConnection();
 			}
-			mouseResponse.updateLine(end);
+			mouseResponse.finishLine(end);
+			svg_items.AddPoints(start, end);
+			dragging = false;
+		}
+				
+	}
+
+	@Override
+	public void onMouseMove(MouseMoveEvent event) {
+		if(!is3d) {
+			int x = event.getX();
+			int y = event.getY();
+			
+			Point p = new Point(x,y);
+	
+			neighbor = svg_items.findnearPoint(p);
+			if(neighbor != null) {
+				mouseResponse.showConnection(p);
+			}
+			else {
+				mouseResponse.endConnection();
+			}
+	
+			if(dragging) {
+				end.setX(x);
+				end.setY(y);
+				if(neighbor != null) {
+					end.setX(neighbor.getX());
+					end.setY(neighbor.getY());
+				}
+				mouseResponse.updateLine(end);
+			}
 		}
 		
 	}
@@ -108,8 +116,12 @@ public class MouseListener extends HandlesAllMouseEvents{
 
 	@Override
 	public void onMouseWheel(MouseWheelEvent event) {
-		// Not needed for this projectb
+		// Not needed for this project
 		
+	}
+	
+	public void setis3d(boolean x) {
+		is3d = x;
 	}
 
 }

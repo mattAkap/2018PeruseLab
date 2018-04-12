@@ -18,6 +18,9 @@
 	<inherits name="gwt.material.design.addins.GwtMaterialAddins" />
 	<inherits name="gwt.material.design.GwtMaterialTable" />
 	<!-- Other module inherits -->
+	
+	<!-- Inherit Parallax -->
+	<inherits name="thothbot.parallax.core.Core"/>
 
 	<!-- Specify the app entry point class. -->
 	<entry-point class='com.peruselabs.peruse.client.Peruse' />

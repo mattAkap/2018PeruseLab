@@ -96,7 +96,17 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>
+	    	 <groupId>thothbot</groupId>
+	    	 <artifactId>parallax</artifactId>
+	     	 <version>1.6</version>
+	     	 <scope>system</scope>
+	    	 <systemPath>${basedir}/lib/parallax-1.6.jar</systemPath>
+	   </dependency>
 	</dependencies>
+	
+	
 
 	<build>
 		<!-- Output classes into the webapp, so that IDEs and "mvn process-classes" update them in DevMode -->

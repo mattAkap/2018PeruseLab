@@ -18,6 +18,16 @@ public class SVGItems {
 		Polygons = new ArrayList<Polygon>();
 		Paths = new ArrayList<Path>();
 	}
+	
+	public boolean contains(Line l) {
+		boolean res = false;
+		for(int i = 0; i<Lines.size(); i++) {
+			if(Lines.get(i).equals(l)) {
+				res = true;
+			}
+		}
+		return res;
+	}
 
 	public void AddPoints(Point startPoint, Point endPoint) {
 		if (!Points.contains(startPoint))

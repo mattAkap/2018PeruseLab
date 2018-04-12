@@ -13,6 +13,8 @@
 				activates="sidenavPush" backgroundColor="TEAL_LIGHTEN_1">
 				<m:MaterialLink iconType="APPS" />
 				<m:MaterialLink iconType="REFRESH" />
+				<m:MaterialButton text="3D" ui:field="button3d"/>
+				<m:MaterialButton text="2D" ui:field="button2d"/>
 				<m:MaterialLabel text="Beta version" styleName="beta" />
 				<m:MaterialNavContent paddingLeft="14" backgroundColor="TEAL_LIGHTEN_3">
 					<m:MaterialLink iconType="MENU" />

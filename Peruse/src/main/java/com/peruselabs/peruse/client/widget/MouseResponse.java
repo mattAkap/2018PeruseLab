@@ -17,8 +17,8 @@ public class MouseResponse {
 	
 	public MouseResponse() {
 		canvas = DOM.getElementById("canvas");
-
 		svgElement = createElementNS(SVG_NAMESPACE, "svg");
+		svgElement.setId("svg_canvas");
 		svgElement.setAttribute("width", "98%");
 		svgElement.setAttribute("height", "98%");
 		canvas.appendChild(svgElement);
