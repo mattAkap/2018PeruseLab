@@ -60,7 +60,7 @@ public class Line implements Crossable {
     @Override
     public Point getIntersection(Crossable aLine) {
     	Point ret = new Point();
-    	Line2D line1 = new Line2D.Double(start.getX(), start.getY(),end.getX(),end.getY());
+    	/*Line2D line1 = new Line2D.Double(start.getX(), start.getY(),end.getX(),end.getY());
     
     	Line2D line2 = new Line2D.Double(this.start.getX(),this.start.getY(),this.end.getX(),this.end.getY());
     	boolean result = line2.intersectsLine(line1);
@@ -87,20 +87,12 @@ public class Line implements Crossable {
     	        ret.setY(y);
     	        return ret;
 
-    	    }
-    		 
-    
-   
-    	
-    	
- 
-    	
-    	
-    	
-    	
-    	
-    	
+    	    }*/
+    		 return ret;
+	
     }
+    
+    
     public Point getStart() {
         return start;
     }

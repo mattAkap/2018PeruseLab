@@ -74,12 +74,12 @@ public class MouseListener extends HandlesAllMouseEvents{
 		int y = event.getY();
 		
 		Point p = new Point(x,y);
-		connect = svg_items.shouldConnect(p);
-		if(connect) {
-			neighbor = svg_items.findnearPoint(p);
+
+		neighbor = svg_items.findnearPoint(p);
+		if(neighbor != null) {
 			mouseResponse.showConnection(p);
-		} else {
-			neighbor = null;
+		}
+		else {
 			mouseResponse.endConnection();
 		}
 
@@ -97,18 +97,18 @@ public class MouseListener extends HandlesAllMouseEvents{
 
 	@Override
 	public void onMouseOut(MouseOutEvent event) {
-		// TODO Auto-generated method stub
+		// Not needed for this project
 		
 	}
 
 	@Override
 	public void onMouseOver(MouseOverEvent event) {
-	
+		// Not needed for this project
 	}
 
 	@Override
 	public void onMouseWheel(MouseWheelEvent event) {
-		// TODO Auto-generated method stub
+		// Not needed for this projectb
 		
 	}
 
