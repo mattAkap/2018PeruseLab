@@ -36,7 +36,7 @@ public interface Crossable {
      * @return boolean
      */
     public default boolean isCrossing(Crossable crossable) {
-        return getIntersection(crossable) == null;
+        return getIntersection(crossable) != null;
     }
 
     /**
@@ -46,6 +46,6 @@ public interface Crossable {
      * @return boolean
      */
     public default boolean isNotCrossing(Crossable crossable) {
-        return !(getIntersection(crossable) == null);
+        return getIntersection(crossable) == null;
     }
 }
