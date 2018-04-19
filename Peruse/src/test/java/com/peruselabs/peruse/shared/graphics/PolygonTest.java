@@ -37,6 +37,8 @@ public class PolygonTest {
         points.add(point);
         point = new Point(199, 1);
         points.add(point);
+        point = new Point(200, 99);
+        points.add(point);
         polygon = new Polygon(points);
     }
 
@@ -57,7 +59,6 @@ public class PolygonTest {
 
         point = new Point(1,1); //Boundary case
         assertFalse(polygon.contains(point));
-
         point = new Point(199,2); //Special Case
         assertTrue(polygon.contains(point));
 
@@ -68,14 +69,23 @@ public class PolygonTest {
      * Test method for {@link .Polygon#getIntersection(.api.Crossable)}.
      */
     @Test
-    public void testGetIntersection() {
+    public void testGetIntersections() {
+        List<Point> expected = new ArrayList<Point>();
+        List<Point> intersection = new ArrayList<Point>();
+
+        Point point = new Point(66.66329966329967, 33.33670033670034);
+        expected.add(point);
+        point = new Point(50, 50);
+        expected.add(point);
         Point start = new Point(1, 99);
         Point end = new Point(99, 1);
         Line aLine = new Line(start, end);
-        List<Point> intersection;
 
         intersection = new ArrayList<Point>(polygon.getIntersections(aLine)); //Normal Case
+
         assertNotNull(intersection);
+        assertEquals(expected.get(0),intersection.get(0));
+        assertEquals(expected.get(1),intersection.get(1));
 
         start = new Point(5, 0);
         end = new Point(5, 40);
@@ -101,9 +111,32 @@ public class PolygonTest {
         start = new Point(1.5,1.5);
         end = new Point(1.5 , 99);
         aLine = new Line(start, end);
+        expected.clear();
+        expected.add(start);
 
-        intersection = polygon.getIntersections(aLine); //Special Case
+        intersection = new ArrayList<Point>(polygon.getIntersections(aLine));; //Special Case
         assertNotNull(intersection);
-    }
+        assertEquals(expected.get(0),intersection.get(0));
 
+        expected.clear();
+        start = new Point(0,50);
+        end = new Point(200 , 50);
+        aLine = new Line(start, end);
+
+        Point intersectedPoint1 = new Point(100.5,50);
+        Point intersectedPoint2 = new Point(50,50);
+        Point intersectedPoint3 = new Point(149,50);
+        Point intersectedPoint4 = new Point(199.5,50);
+        expected.add(intersectedPoint1);
+        expected.add(intersectedPoint2);
+        expected.add(intersectedPoint3);
+        expected.add(intersectedPoint4);
+
+        intersection = new ArrayList<Point>(polygon.getIntersections(aLine));; //Special Case with 4 points and 3 intersections!
+        assertEquals(expected.size(),intersection.size());
+        assertEquals(expected.get(0),intersection.get(0));
+        assertEquals(expected.get(1),intersection.get(1));
+        assertEquals(expected.get(2),intersection.get(2));
+        assertEquals(expected.get(3),intersection.get(3));
+    }
 }
