@@ -21,11 +21,12 @@ public class SVGItems {
 	
 	public boolean contains(Line l) {
 		boolean res = false;
+		
 		for(int i = 0; i<Lines.size(); i++) {
-			if(Lines.get(i).equals(l)) {
+			if(Lines.get(i).equals(l))
 				res = true;
-			}
 		}
+		
 		return res;
 	}
 
@@ -40,7 +41,6 @@ public class SVGItems {
 
 		if (!Lines.contains(newLine))
 			Lines.add(newLine);
-		
 	}
 	
 	public Point findnearPoint(Point p1) {
@@ -51,19 +51,16 @@ public class SVGItems {
 		for(int i = 0; i < Points.size();i++) {
 			Point p2 = Points.get(i);
 			distance = Math.sqrt(Math.pow(p1.getX()-p2.getX(), 2) + Math.pow(p1.getY()-p2.getY(), 2));
+			
 			if(distance < min_distance) {
 				min_distance = distance;
 				index = i;
 			}
 		}
 		
-		if(index != -1  && min_distance < 5) {
+		if(index != -1  && min_distance < 5)
 			neighbor = Points.get(index);
-		}
 		
 		return neighbor;
-			
 	}
-	
-	
 }
