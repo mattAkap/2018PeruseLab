@@ -58,7 +58,7 @@ public class SVGItems {
 			}
 		}
 		
-		if(index != -1  && min_distance < 5)
+		if(index != -1)
 			neighbor = Points.get(index);
 		
 		return neighbor;

@@ -26,7 +26,7 @@ public class SVGItemsTest {
 		
 		Point result = svgitem.findnearPoint(testPoint);
 		
-		assertEquals(result, a);
+		assertEquals(a, result);
 	}
 	
 	@Test
@@ -38,7 +38,7 @@ public class SVGItemsTest {
 		
 		Point result = svgitem.findnearPoint(testPoint);
 		
-		assertEquals(result, a);
+		assertEquals(a, result);
 	}
 	
 	@Test
@@ -50,7 +50,7 @@ public class SVGItemsTest {
 		
 		Point result = svgitem.findnearPoint(testPoint);
 		
-		assertEquals(result, b);
+		assertEquals(b, result);
 	}
 	
 	@Test
@@ -74,7 +74,7 @@ public class SVGItemsTest {
 		
 		Point result = svgitem.findnearPoint(testPoint);
 		
-		assertEquals(result, d);
+		assertEquals(d, result);
 	}
 
 }
