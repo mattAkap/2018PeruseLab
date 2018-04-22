@@ -6,7 +6,6 @@ import static org.junit.Assert.assertNull;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.peruselabs.peruse.shared.graphics.Line;
 import com.peruselabs.peruse.shared.graphics.Point;
 
 public class SVGItemsTest {

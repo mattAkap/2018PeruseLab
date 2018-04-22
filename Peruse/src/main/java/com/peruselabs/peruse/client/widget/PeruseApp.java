@@ -10,7 +10,6 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.MouseDownEvent;
 import com.google.gwt.event.dom.client.MouseMoveEvent;
-import com.google.gwt.event.dom.client.MouseOverEvent;
 import com.google.gwt.event.dom.client.MouseUpEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -52,7 +51,6 @@ public class PeruseApp extends Composite {
     @UiField
     MaterialButton button2d;
     
-    private Element svgcanvas;
     private boolean is3d = false;
     private ParallaxScene scene;
     private RenderingPanel renderingPanel;
@@ -63,61 +61,51 @@ public class PeruseApp extends Composite {
         //All of the line/points/polygons of the session
         items = new SVGItems();
         
-
-        
         paper.setId("canvas");
         MouseListener mouselistener = new MouseListener(items, is3d);
         
         paper.addDomHandler(mouselistener, MouseDownEvent.getType());
         paper.addDomHandler(mouselistener, MouseMoveEvent.getType());
         paper.addDomHandler(mouselistener, MouseUpEvent.getType());
-        
     
         //Rendering Panel for 3D
         renderingPanel = new RenderingPanel();
 		renderingPanel.setBackground(0xcccccc);
 		renderingPanel.setHeight("99%");
 		renderingPanel.setWidth("99%");
-		renderingPanel.setAnimatedScene(new ParallaxScene());
+		scene = new ParallaxScene();
+		renderingPanel.setAnimatedScene(scene);
 		paper.add(renderingPanel);
-        
 		
         button3d.addClickHandler(new ClickHandler() {
 
 			@Override
 			public void onClick(ClickEvent event) {
 				Element svgcanvas = DOM.getElementById("svg_canvas");
-				if(svgcanvas != null) {
+				
+				if(svgcanvas != null)
 					svgcanvas.setAttribute("visibility", "hidden");
-				}
+				
 				renderingPanel.setVisible(true);
 				DimensionConversion dc = new DimensionConversion();
-				dc.convertTo3D(items, scene);
-				is3d = true;
-				mouselistener.setis3d(is3d);
+				dc.convertTo3D(mouselistener.getsvg_items(), scene);
 			}
-        	
         });
         
         button2d.addClickHandler(new ClickHandler() {
-
+        	
 			@Override
 			public void onClick(ClickEvent event) {
 				Element svgcanvas = DOM.getElementById("svg_canvas");
-				if(svgcanvas != null) {
+				if(svgcanvas != null)
 					svgcanvas.removeAttribute("visibility");
-				}
-				renderingPanel.setVisible(false);
-				is3d = false;
-				mouselistener.setis3d(is3d);
 				
+				renderingPanel.setVisible(false);
 			}
-        	
         });
     }
 
     public void add(Widget widget) {
         content.add(widget);
     }
-    
 }

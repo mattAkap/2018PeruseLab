@@ -33,34 +33,28 @@ public class Polygon implements Crossable, MayContain {
 
 	public Polygon(@NotNull List<Point> points) throws StdException {
 		super();
-		if (points.size() < 2) {
+		if (points.size() < 2)
 			throw new StdException("Not enough points to create a polygon");
-		}
+		
 		this.points = points;
 	}
 
 	@Override
 	public boolean contains(Point aPoint) {
-
 		int j = points.size() - 1;
 		boolean oddNodes = false;
 
 		for (int i = 0; i < points.size(); i++) {
 			if (points.get(i).getY() < aPoint.getY() && points.get(j).getY() >= aPoint.getY()
 					|| points.get(j).getY() < aPoint.getY() && points.get(i).getY() >= aPoint.getY()) {
-				if (points.get(i).getX()
-						+ (aPoint.getY() - points.get(i).getY()) / (points.get(j).getY() - points.get(j).getY())
-								* (points.get(j).getX() - points.get(i).getX()) < aPoint.getX())
-
-				{
+				if (points.get(i).getX() + (aPoint.getY() - points.get(i).getY()) / (points.get(j).getY() - points.get(j).getY()) * (points.get(j).getX() - points.get(i).getX()) < aPoint.getX())
 					oddNodes = !oddNodes;
-				}
 			}
+			
 			j = i;
 		}
-
+		
 		return oddNodes;
-
 	}
 
 	@Override
@@ -93,10 +87,10 @@ public class Polygon implements Crossable, MayContain {
 						secondPoint.getY());
 				Line2D line2 = new Line2D.Double(((Line) aLine).getStart().getX(), ((Line) aLine).getStart().getY(),
 						((Line) aLine).getEnd().getX(), ((Line) aLine).getEnd().getY());
+				
 				boolean result = line2.intersectsLine(line1);
-				if (!result) {
-
-				} else {
+				
+				if (result) {
 					final double x1, y1, x2, y2, x3, y3, x4, y4;
 
 					x1 = firstPoint.getX();
@@ -109,19 +103,15 @@ public class Polygon implements Crossable, MayContain {
 					y4 = ((Line) aLine).getEnd().getY();
 
 					double denom = (y4 - y3) * (x2 - x1) - (x4 - x3) * (y2 - y1);
-					if (denom == 0.0) { // Lines are parallel.
-
-					}
 					double ua = ((x4 - x3) * (y1 - y3) - (y4 - y3) * (x1 - x3)) / denom;
 					double ub = ((x2 - x1) * (y1 - y3) - (y2 - y1) * (x1 - x3)) / denom;
+					
 					if (ua >= 0.0f && ua <= 1.0f && ub >= 0.0f && ub <= 1.0f) {
 						// Get the intersection point.
 						intersectedPoint = new Point((x1 + ua * (x2 - x1)), (y1 + ua * (y2 - y1)));
 						listOfIntersections.add(intersectedPoint);
-
 					}
 				}
-
 			}
 
 			firstPoint = this.points.get(i);
@@ -131,12 +121,10 @@ public class Polygon implements Crossable, MayContain {
 					secondPoint.getY());
 			Line2D line2 = new Line2D.Double(((Line) aLine).getStart().getX(), ((Line) aLine).getStart().getY(),
 					((Line) aLine).getEnd().getX(), ((Line) aLine).getEnd().getY());
+			
 			boolean result = line2.intersectsLine(line1);
-			if (!result) {
-
-			}
-
-			else {
+			
+			if (result) {
 				final double x1, y1, x2, y2, x3, y3, x4, y4;
 
 				x1 = firstPoint.getX();
@@ -149,26 +137,21 @@ public class Polygon implements Crossable, MayContain {
 				y4 = ((Line) aLine).getEnd().getY();
 
 				double denom = (y4 - y3) * (x2 - x1) - (x4 - x3) * (y2 - y1);
-				if (denom == 0.0) { // Lines are parallel.
-
-				}
 				double ua = ((x4 - x3) * (y1 - y3) - (y4 - y3) * (x1 - x3)) / denom;
 				double ub = ((x2 - x1) * (y1 - y3) - (y2 - y1) * (x1 - x3)) / denom;
+				
 				if (ua >= 0.0f && ua <= 1.0f && ub >= 0.0f && ub <= 1.0f) {
 					// Get the intersection point.
 					intersectedPoint = new Point((x1 + ua * (x2 - x1)), (y1 + ua * (y2 - y1)));
 					listOfIntersections.add(intersectedPoint);
-
 				}
 			}
-
 		}
 
-		if (listOfIntersections.size() == 0) {
+		if (listOfIntersections.size() == 0)
 			return null;
-		}
+			
 		return listOfIntersections;
-
 	}
 
 	@Override
@@ -176,6 +159,7 @@ public class Polygon implements Crossable, MayContain {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((points == null) ? 0 : points.hashCode());
+		
 		return result;
 	}
 
@@ -184,18 +168,20 @@ public class Polygon implements Crossable, MayContain {
 		final int maxLen = 10;
 		StringBuilder builder = new StringBuilder();
 		builder.append("Polygon [");
+		
 		if (points != null) {
 			builder.append("points=");
 			builder.append(points.subList(0, Math.min(points.size(), maxLen)));
 		}
+		
 		builder.append("]");
+		
 		return builder.toString();
 	}
 
 	/**
 	 * DO NOT use this method when using polygons. This method is just for lines.
 	 */
-
 	@Override
 	public Point getIntersection(Crossable crossable) {
 		return null;

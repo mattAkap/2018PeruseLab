@@ -62,7 +62,6 @@ public class PolygonTest {
 
 		point = new Point(199, 2); // Special Case
 		assertTrue(polygon.contains(point));
-		// All test cases pass, the algorithm works sufficiently.
 	}
 
 	/**

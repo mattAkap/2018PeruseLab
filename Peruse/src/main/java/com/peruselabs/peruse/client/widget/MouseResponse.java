@@ -1,19 +1,14 @@
 package com.peruselabs.peruse.client.widget;
 
-
-
 import com.google.gwt.dom.client.Element;
-import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.user.client.DOM;
 import com.peruselabs.peruse.shared.graphics.Point;
 
 public class MouseResponse {
-	
 	private static final String SVG_NAMESPACE = "http://www.w3.org/2000/svg";
 	private Element canvas, line, svgElement, circle;
 	private int height, width;
 	private boolean circleOn = false;
-
 	
 	public MouseResponse() {
 		canvas = DOM.getElementById("canvas");
@@ -32,17 +27,14 @@ public class MouseResponse {
 		line.setAttribute("y2", Double.toString(end.getY()));
 		line.setAttribute("style", "stroke:rgb(0,0,255);stroke-width:3");
 		svgElement.appendChild(line);
-		
 	}
 	
 	public void updateLine(Point end) {
-
 		line.setAttribute("x2", Double.toString(end.getX()));
 		line.setAttribute("y2", Double.toString(end.getY()));
 	}
 	
 	public void finishLine(Point end) {
-
 		line.setAttribute("x2", Double.toString(end.getX()));
 		line.setAttribute("y2", Double.toString(end.getY()));
 	}
@@ -58,6 +50,7 @@ public class MouseResponse {
 			circleOn = true;
 		}
 	}
+	
 	public void endConnection() {
 		if(circleOn) {
 			svgElement.removeChild(circle);
@@ -69,5 +62,4 @@ public class MouseResponse {
 	        final String name)/*-{
 	    return document.createElementNS(ns, name);
 	}-*/;
-
 }

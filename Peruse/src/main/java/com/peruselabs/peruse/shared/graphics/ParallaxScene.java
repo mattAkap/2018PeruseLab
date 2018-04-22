@@ -9,8 +9,6 @@ import thothbot.parallax.core.shared.materials.*;
 import thothbot.parallax.core.shared.math.*;
 import thothbot.parallax.core.shared.objects.*;
 
-import java.math.*;
-
 import com.google.gwt.event.dom.client.*;
 import com.peruselabs.peruse.client.widget.SVGItems;
 
@@ -37,7 +35,6 @@ public class ParallaxScene extends AnimatedScene {
 		
 	public SVGItems svg_items;
 
-
 	protected void drawSphere(double radius, double x, double y, double z) {
 		SphereGeometry geometry = new SphereGeometry(radius, sphereWidthSegments, sphereHeightSegments);
 		MeshLambertMaterial material = new MeshLambertMaterial();
@@ -57,7 +54,6 @@ public class ParallaxScene extends AnimatedScene {
 		cylinder.setPosition(new Vector3((x1 + x2) / 2, (y1 + y2) / 2, 0));
 		getScene().add(cylinder);
 	}
-	
 
 	protected Vector3 screenProjectOn3D(double x, double y) {
 		Vector3 vector = new Vector3();
@@ -70,7 +66,6 @@ public class ParallaxScene extends AnimatedScene {
 	}
 
 	public void drawKey(double x1, double y1, double x2, double y2) {
-		
 		Vector3 pos1 = screenProjectOn3D(x1, y1);
 		Vector3 pos2 = screenProjectOn3D(x2, y2);
 		drawSphere(sphereRadius, pos1.getX(), pos1.getY(), 0);
@@ -84,6 +79,7 @@ public class ParallaxScene extends AnimatedScene {
 
 	@Override
 	protected void onStart() {
+		svg_items = new SVGItems();
 		camera = new PerspectiveCamera(perspectiveFov, getRenderer().getAbsoluteAspectRation(), perspectiveNear,
 				perspectiveFar);
 		camera.setPosition(cameraPosition);
@@ -103,11 +99,13 @@ public class ParallaxScene extends AnimatedScene {
 					startY = event.getClientY() - getCanvas().getAbsoluteTop();
 			}
 		});
+		
 		getCanvas().addMouseUpHandler(new MouseUpHandler() {
 			public void onMouseUp(MouseUpEvent event) {	
 					endX = event.getClientX() - getCanvas().getAbsoluteLeft();
 					endY = event.getClientY() - getCanvas().getAbsoluteTop();
 					drawKey(startX, startY, endX, endY);
+					svg_items.AddPoints(new Point(startX, startY), new Point(endX, endY));
 			}
 		});
 	}
@@ -116,5 +114,4 @@ public class ParallaxScene extends AnimatedScene {
 	public void onUpdate(double duration) {
 		getRenderer().render(getScene(), camera);
 	}
-
 }

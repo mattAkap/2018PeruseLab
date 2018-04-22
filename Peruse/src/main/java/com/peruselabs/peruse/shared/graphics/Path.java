@@ -28,9 +28,8 @@ public class Path implements Crossable {
 
 	public Path(@NotNull List<Point> points) throws StdException {
 		super();
-		if (points.size() < 2) {
+		if (points.size() < 2)
 			throw new StdException("Not enough points to create a path");
-		}
 		
 		this.points = points;
 	}
@@ -42,7 +41,6 @@ public class Path implements Crossable {
 	public List<Point> getIntersectionsPath(Crossable aPath) {
 		List<Point> listOfIntersections = new ArrayList<Point>();
 		Point intersectedPoint = new Point();
-		
 		for (int i = 0; i < this.points.size() - 1; i++) {
 			Point firstPoint = this.points.get(i);
 			Point secondPoint = this.points.get(i + 1);
@@ -52,9 +50,8 @@ public class Path implements Crossable {
 			Line2D line2 = new Line2D.Double(((Line) aPath).getStart().getX(), ((Line) aPath).getStart().getY(),
 					((Line) aPath).getEnd().getX(), ((Line) aPath).getEnd().getY());
 			boolean result = line2.intersectsLine(line1);
-			if (!result) {
-			}
-			else {
+			
+			if (result) {
 				final double x1, y1, x2, y2, x3, y3, x4, y4;
 
 				x1 = firstPoint.getX();
@@ -67,11 +64,10 @@ public class Path implements Crossable {
 				y4 = ((Line) aPath).getEnd().getY();
 
 				double denom = (y4 - y3) * (x2 - x1) - (x4 - x3) * (y2 - y1);
-				if (denom == 0.0) { // Lines are parallel.
-				}
-		
+				
 				double ua = ((x4 - x3) * (y1 - y3) - (y4 - y3) * (x1 - x3)) / denom;
 				double ub = ((x2 - x1) * (y1 - y3) - (y2 - y1) * (x1 - x3)) / denom;
+				
 				if (ua >= 0.0f && ua <= 1.0f && ub >= 0.0f && ub <= 1.0f) {
 					// Get the intersection point.
 					intersectedPoint = new Point((int) x1 + ua * (x2 - x1), (int) y1 + ua * (y2 - y1));
@@ -80,12 +76,10 @@ public class Path implements Crossable {
 			}
 		}
 
-		if (listOfIntersections.size() == 0) {
+		if (listOfIntersections.size() == 0)
 			return null;
-		}
 		
 		return listOfIntersections;
-
 	}
 
 	public boolean isCrossingPath(Crossable crossable) {
